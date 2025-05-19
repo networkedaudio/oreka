@@ -71,13 +71,14 @@ public:
 	CStdString m_localEntryPoint;
 	CStdString m_remoteParty;
 	CaptureEvent::DirectionEnum m_direction;
-        CaptureEvent::LocalSideEnum m_localSide;
-        CaptureEvent::AudioKeepDirectionEnum m_audioKeepDirectionEnum;
+	CaptureEvent::LocalSideEnum m_localSide;
+	CaptureEvent::AudioKeepDirectionEnum m_audioKeepDirectionEnum;
 	time_t m_beginDate;
 	int m_duration;
 	CStdString m_localIp;
 	CStdString m_remoteIp;
 	CStdString m_filename;
+	CStdString m_nativeCallId;
 	bool m_onDemand;
 };
 
@@ -143,6 +144,8 @@ public:
 	CStdString m_externalFileName;		//name of imported file, its not conventional orkaudio name, its convetional orkaudio identifier + orginal name
 	bool m_fromProcessMcf;
 	TapeResponseRef m_tapeResponse;
+	int m_lastHoldTs{0};
+	int m_holdDuration{0};
 
 	/*
 	 * This function has been made public in order to allow the TapeFileNaming

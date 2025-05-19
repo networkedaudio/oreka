@@ -180,8 +180,6 @@ private:
 	//struct in_addr m_localMac;
 	//struct in_addr m_remoteMac;
 	LoggerPtr m_log;
-	bool m_started;
-	bool m_stopped;
 	CStdString m_orkUid;
 
 	bool m_hasDuplicateRtp;
@@ -249,6 +247,7 @@ public:
 	void TaggingSipTransferCalls(VoIpSessionRef& session);
 	void CopyMetadataToNewSession(VoIpSessionRef& oldSession, VoIpSessionRef& newSession);
 	void ClearLocalPartyMap();
+	const std::map<unsigned long long, VoIpSessionRef> & getByIpAndPort() const;
 
 private:
 	void CraftMediaAddress(CStdString& mediaAddress, struct in_addr ipAddress, unsigned short udpPort);
